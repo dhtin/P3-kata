@@ -16,5 +16,9 @@ class MyTestCase(unittest.TestCase):
         output = self.bowling_game.score()
         self.assertEqual(1, output)
 
+    def test_invalid_roll(self):
+        with self.assertRaises(ValueError):
+            self.bowling_game.roll(11)
+
 if __name__ == '__main__':
     unittest.main()
