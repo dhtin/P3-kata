@@ -2,7 +2,7 @@ import unittest
 from bowling_game import Game
 
 
-class MyTestCase(unittest.TestCase):
+class BowlingTestCase(unittest.TestCase):
 
     def setUp(self):
         self.bowling_game = Game()
