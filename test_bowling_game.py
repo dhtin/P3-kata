@@ -34,5 +34,12 @@ class MyTestCase(unittest.TestCase):
         output = self.bowling_game.score()
         self.assertEqual(6, output)
 
+    def test_spare_bonues(self):
+        self.bowling_game.roll(5)
+        self.bowling_game.roll(5)
+        self.bowling_game.roll(4)
+        output = self.bowling_game.score()
+        self.assertEqual(18, output)
+
 if __name__ == '__main__':
     unittest.main()
