@@ -25,8 +25,9 @@ class Game:
     def score(self) -> int:
         total_score = 0
         roll_index = 0
+        frame = 0
 
-        while roll_index < len(self.rolls):
+        while frame < 10 and roll_index < len(self.rolls):
 
             if self.rolls[roll_index] == 10: # Strike
                 if roll_index + 2 < len(self.rolls):
@@ -44,5 +45,7 @@ class Game:
             else:
                 total_score += self.rolls[roll_index]
                 roll_index += 1
+            
+            frame += 1
 
         return total_score
