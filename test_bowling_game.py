@@ -82,5 +82,12 @@ class MyTestCase(unittest.TestCase):
         output = self.bowling_game.score()
         self.assertEqual(150, output)
 
+    def test_full_game(self):
+        rolls = [1, 4, 4, 5, 6, 4, 5, 5, 10, 0, 1, 7, 3, 6, 4, 10, 10, 0, 6]
+        for roll in rolls:
+            self.bowling_game.roll(roll)
+        output = self.bowling_game.score()
+        self.assertEqual(133, output)
+
 if __name__ == '__main__':
     unittest.main()
