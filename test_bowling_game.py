@@ -76,5 +76,11 @@ class MyTestCase(unittest.TestCase):
         output = self.bowling_game.score()
         self.assertEqual(300, output)
 
+    def test_all_spares(self):
+        for i in range(21):
+            self.bowling_game.roll(5)
+        output = self.bowling_game.score()
+        self.assertEqual(150, output)
+
 if __name__ == '__main__':
     unittest.main()
