@@ -62,5 +62,13 @@ class MyTestCase(unittest.TestCase):
         output = self.bowling_game.score()
         self.assertEqual(24, output)
 
+    def test_successive_strikes(self):
+        self.bowling_game.roll(10)
+        self.bowling_game.roll(10)
+        self.bowling_game.roll(3)
+        self.bowling_game.roll(4)
+        output = self.bowling_game.score()
+        self.assertEqual(47, output)
+
 if __name__ == '__main__':
     unittest.main()
