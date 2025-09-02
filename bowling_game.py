@@ -1,4 +1,4 @@
 class Game:
 
-    def something(self):
-        return True
+    def score(self) -> int:
+        return 0
