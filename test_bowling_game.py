@@ -89,5 +89,11 @@ class MyTestCase(unittest.TestCase):
         output = self.bowling_game.score()
         self.assertEqual(133, output)
 
+    def test_extra_roll_after_game_end(self):
+        for i in range(20):
+            self.bowling_game.roll(1)
+        with self.assertRaises(RuntimeError):
+            self.bowling_game.roll(1)
+
 if __name__ == '__main__':
     unittest.main()
