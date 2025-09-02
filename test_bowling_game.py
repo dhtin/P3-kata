@@ -20,5 +20,9 @@ class MyTestCase(unittest.TestCase):
         with self.assertRaises(ValueError):
             self.bowling_game.roll(11)
 
+    def test_non_integer_roll(self):
+        with self.assertRaises(TypeError):
+            self.bowling_game.roll(9.6)
+
 if __name__ == '__main__':
     unittest.main()
