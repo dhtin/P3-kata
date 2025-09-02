@@ -28,5 +28,11 @@ class MyTestCase(unittest.TestCase):
         with self.assertRaises(TypeError):
             self.bowling_game.roll("nine")
 
+    def test_two_rolls(self):
+        self.bowling_game.roll(1)
+        self.bowling_game.roll(5)
+        output = self.bowling_game.score()
+        self.assertEqual(6, output)
+
 if __name__ == '__main__':
     unittest.main()
