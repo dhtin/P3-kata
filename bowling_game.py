@@ -3,7 +3,6 @@ class Game:
     def __init__(self):
         self.rolls = []
         self.current_frame_rolls = []
-        self.total_score = 0
 
     def roll(self, pins: int):
         if not isinstance(pins, int):
@@ -22,15 +21,24 @@ class Game:
 
         if len(self.current_frame_rolls) == 2 or pins == 10:
             self.current_frame_rolls = []
-
-        self.total_score += pins
-        self._handle_spare_bonus()
-
-    def _handle_spare_bonus(self):
-        if len(self.rolls) > 2:
-            if self.rolls[-3] + self.rolls[-2] == 10:
-                    self.total_score += self.rolls[-1]
         
-
     def score(self) -> int:
-        return self.total_score
+        total_score = 0
+        roll_index = 0
+
+        while roll_index < len(self.rolls):
+
+            if roll_index + 1 < len(self.rolls) and self.rolls[roll_index] + self.rolls[roll_index + 1] == 10:
+                if roll_index + 2 < len(self.rolls):
+                    total_score += 10 + self.rolls[roll_index + 2]
+                else:
+                    total_score += 10
+                roll_index += 2
+            elif roll_index + 1 < len(self.rolls):
+                total_score += self.rolls[roll_index] + self.rolls[roll_index + 1]
+                roll_index += 2
+            else:
+                total_score += self.rolls[roll_index]
+                roll_index += 1
+
+        return total_score
