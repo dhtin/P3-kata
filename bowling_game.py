@@ -1,2 +1,2 @@
 def something():
-    return False
+    return True
