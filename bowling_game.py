@@ -1,2 +1,4 @@
-def something():
-    return True
+class Game:
+
+    def something(self):
+        return True
