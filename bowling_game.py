@@ -28,7 +28,11 @@ class Game:
 
         while roll_index < len(self.rolls):
 
-            if roll_index + 1 < len(self.rolls) and self.rolls[roll_index] + self.rolls[roll_index + 1] == 10:
+            if self.rolls[roll_index] == 10: # Strike
+                if roll_index + 2 < len(self.rolls):
+                    total_score += 10 + self.rolls[roll_index + 1] + self.rolls[roll_index + 2]
+                roll_index += 1
+            elif roll_index + 1 < len(self.rolls) and self.rolls[roll_index] + self.rolls[roll_index + 1] == 10: # Spare
                 if roll_index + 2 < len(self.rolls):
                     total_score += 10 + self.rolls[roll_index + 2]
                 else:
