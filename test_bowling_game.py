@@ -3,9 +3,12 @@ from bowling_game import Game
 
 
 class MyTestCase(unittest.TestCase):
+
+    def setUp(self):
+        self.bowling_game = Game()
+
     def test_starting_score(self):
-        bowling_game = Game()
-        output = bowling_game.score()
+        output = self.bowling_game.score()
         self.assertEqual(0, output) 
 
 if __name__ == '__main__':
