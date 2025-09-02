@@ -46,5 +46,14 @@ class MyTestCase(unittest.TestCase):
         with self.assertRaises(ValueError):
             self.bowling_game.roll(7)
 
+    def test_successive_spares(self):
+        self.bowling_game.roll(5)
+        self.bowling_game.roll(5)
+        self.bowling_game.roll(5)
+        self.bowling_game.roll(5)
+        self.bowling_game.roll(4)
+        output = self.bowling_game.score()
+        self.assertEqual(29, output)
+
 if __name__ == '__main__':
     unittest.main()
