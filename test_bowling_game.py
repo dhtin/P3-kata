@@ -55,5 +55,12 @@ class MyTestCase(unittest.TestCase):
         output = self.bowling_game.score()
         self.assertEqual(33, output)
 
+    def test_strike_bonus(self):
+        self.bowling_game.roll(10)
+        self.bowling_game.roll(3)
+        self.bowling_game.roll(4)
+        output = self.bowling_game.score()
+        self.assertEqual(24, output)
+
 if __name__ == '__main__':
     unittest.main()
