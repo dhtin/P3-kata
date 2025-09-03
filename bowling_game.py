@@ -36,8 +36,6 @@ class Game:
             elif roll_index + 1 < len(self.rolls) and self.rolls[roll_index] + self.rolls[roll_index + 1] == 10: # Spare
                 if roll_index + 2 < len(self.rolls):
                     total_score += 10 + self.rolls[roll_index + 2]
-                else:
-                    total_score += 10
                 roll_index += 2
             elif roll_index + 1 < len(self.rolls):
                 total_score += self.rolls[roll_index] + self.rolls[roll_index + 1]
