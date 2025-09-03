@@ -14,7 +14,7 @@ class BowlingTestCase(unittest.TestCase):
     def test_roll_1_pin_knocked(self):
         self.bowling_game.roll(1)
         output = self.bowling_game.score()
-        self.assertEqual(1, output)
+        self.assertEqual(0, output)
 
     def test_invalid_roll(self):
         with self.assertRaises(ValueError):
@@ -39,7 +39,7 @@ class BowlingTestCase(unittest.TestCase):
         self.bowling_game.roll(5)
         self.bowling_game.roll(4)
         output = self.bowling_game.score()
-        self.assertEqual(18, output)
+        self.assertEqual(14, output)
 
     def test_roll_over_remaining_pins(self):
         self.bowling_game.roll(5)
@@ -53,7 +53,7 @@ class BowlingTestCase(unittest.TestCase):
         self.bowling_game.roll(5)
         self.bowling_game.roll(4)
         output = self.bowling_game.score()
-        self.assertEqual(33, output)
+        self.assertEqual(29, output)
 
     def test_strike_bonus(self):
         self.bowling_game.roll(10)

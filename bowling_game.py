@@ -40,9 +40,6 @@ class Game:
             elif roll_index + 1 < len(self.rolls):
                 total_score += self.rolls[roll_index] + self.rolls[roll_index + 1]
                 roll_index += 2
-            else:
-                total_score += self.rolls[roll_index]
-                roll_index += 1
             
             frame += 1
 
